@@ -1,0 +1,105 @@
+baseURL: "http://localhost:1313/"
+title: "SecretStartups.org"
+paginate: 5
+theme: PaperMod
+
+enableRobotsTXT: true
+buildDrafts: true
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production
+  title: SecretStartups.org
+  description: "Discover and explore innovative startups, shaping the future in stealth mode."
+  keywords: [Blog, Portfolio, Organization]
+  author: SecretStartups
+  DateFormat: "January 2, 2006"
+  defaultTheme: auto
+  
+  # Display Settings
+  ShowReadingTime: false
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: false
+  ShowRssButtonInSectionTermList: false
+  UseHugoToc: true
+  disableSpecial1stPost: true
+  disableScrollToTop: false
+  comments: false
+  hidemeta: true
+  hideSummary: false
+  showtoc: true
+  tocopen: false
+
+  # Home Page Settings
+  homeInfoParams:
+    Title: "SecretStartups.org"
+    Content: >
+      Welcome to SecretStartups.org - Building the future of non-profit organizations.
+      
+      - We empower non-profits through technology
+      - We connect passionate individuals
+      - We drive sustainable change
+
+  socialIcons:
+    - name: github
+      url: "your-github-url"
+    - name: linkedin
+      url: "your-linkedin-url"
+
+  # Customize appearance
+  assets:
+    favicon: "/favicon.ico"
+    favicon16x16: "/favicon-16x16.png"
+    favicon32x32: "/favicon-32x32.png"
+    apple_touch_icon: "/apple-touch-icon.png"
+    safari_pinned_tab: "/safari-pinned-tab.svg"
+
+menu:
+  main:
+    - identifier: "about"
+      name: "About Us"
+      url: "/about/"
+      weight: 10
+    - identifier: "teams"
+      name: "Teams"
+      url: "/teams/"
+      weight: 20
+    - identifier: "associates"
+      name: "Associates"
+      url: "/associates/"
+      weight: 30
+    - identifier: "handbook"
+      name: "Handbook"
+      url: "/handbook/"
+      weight: 40
+    - identifier: "legals"
+      name: "Legal Information"
+      url: "/legals/"
+      weight: 50
+
+taxonomies:
+  department: departments
+  expertise: expertises
+  location: locations
+  collaboration_area: collaboration_areas
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    style: monokai
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON

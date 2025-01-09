@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="hero-container">
+    <div class="hero-content">
+        <h1>{{ .Site.Title }}</h1>
+        <p>{{ .Site.Params.description }}</p>
+        <a href="mailto:hello@secretstartups.org" class="cta">Join the Journey</a>
+    </div>
+</div>
+
+<div class="main-content">
+    {{ .Content }}
+</div>
+{{ end }}

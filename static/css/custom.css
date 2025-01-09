@@ -1,0 +1,69 @@
+:root {
+    --sidebar-width: 260px;
+    --content-gap: 20px;
+    --content-max-width: 1000px;
+  }
+  
+  /* Custom styles for team/associate cards */
+  .member-card {
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease;
+    background: var(--entry);
+  }
+  
+  .member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .member-info {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 20px;
+  }
+  
+  .member-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    object-fit: cover;
+  }
+  
+  .member-details h3 {
+    margin: 0 0 10px 0;
+  }
+  
+  /* Custom styles for legal documents */
+  .legal-section {
+    background: var(--entry);
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+  }
+  
+  .legal-section h2 {
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Video embed container */
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
