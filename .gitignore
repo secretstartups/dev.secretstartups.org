@@ -17,21 +17,39 @@
 # Synced from external data sources (scripts/sync-data.sh)
 /data/public
 
-# Hugo
-.hugo_build.lock
-
 # Caching
 /node_modules
 
-# Scripts/Linting
-/scripts/issue_log
-handbook-codequality.json
-markdownlint-cli2-codequality.json
-
-# Ignore new partials and shortcodes added to layout
-/layout/partials
-/layout/shortcodes
-
 # Random files
 code.md
-set_up_hugo_and_go.sh
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.*.local
+
+# Build artifacts
+/dist
+/build
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*.bak
+
+# Coverage reports
+/coverage
+
+# Dependency directories
+/.pnp
+.pnp.js
+
+# IDE specific
+/.history
+/.sass-cache
+/.eslintcache

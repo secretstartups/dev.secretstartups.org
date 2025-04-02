@@ -1,0 +1,103 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 225 30% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 240 20% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 240 20% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 270 75% 50%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 240 20% 20%;
+    --muted-foreground: 240 20% 70%;
+
+    --accent: 270 75% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 20% 20%;
+    --input: 240 20% 20%;
+    --ring: 270 75% 60%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-lg font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-md bg-secondary px-6 py-3 text-lg font-medium text-secondary-foreground shadow transition-colors hover:bg-secondary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-md border border-input bg-background px-6 py-3 text-lg font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-md px-6 py-3 text-lg font-medium shadow-sm transition-colors hover:bg-accent/20 hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 hover:translate-y-[-5px];
+  }
+
+  .gradient-text {
+    @apply bg-gradient-secondary bg-clip-text text-transparent;
+  }
+
+  .neon-border {
+    @apply border border-neon-cyan shadow-[0_0_5px_rgba(0,255,255,0.5)] animate-glow;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+}

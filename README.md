@@ -1,127 +1,52 @@
-# SecretStartups.org Website
+# SecretStaartups.org
+## Project info
 
-This repository contains the source code for the SecretStartups.org website, built using Hugo.
+## How can I edit this code?
 
-## Prerequisites
+**Use your preferred IDE**
 
-- Hugo (Extended Version) v0.92.0 or later
-- Git
-- Basic command line knowledge
+If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
 
-## Setup Instructions
+The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-1. Clone the repository:
-```bash
-git clone [your-repo-url]
+Follow these steps:
+
+```sh
+# Step 1: Clone the repository using the project's Git URL.
+git clone https://github.com/secretstartups/dev.secretstartups.org.git
+
+# Step 2: Navigate to the project directory.
 cd dev.secretstartups.org
+
+# Step 3: Install the necessary dependencies.
+npm i
+
+# Step 4: Start the development server with auto-reloading and an instant preview.
+npm run dev
 ```
 
-2. Initialize and update submodules:
-```bash
-git submodule init
-git submodule update
-```
+**Edit a file directly in GitHub**
 
-3. Install dependencies:
-```bash
-# For Ubuntu/Debian
-sudo apt update
-sudo apt install hugo
-```
+- Navigate to the desired file(s).
+- Click the "Edit" button (pencil icon) at the top right of the file view.
+- Make your changes and commit the changes.
 
-## Project Structure
+**Use GitHub Codespaces**
 
-```
-secretstartups/
-├── archetypes/          # Template files for new content
-├── assets/             
-│   └── css/            # Custom CSS styles
-├── content/            # Main content files
-│   ├── teams/         # Team member profiles
-│   ├── associates/    # Associate profiles
-│   ├── handbook/      # Organization handbook
-│   ├── about/         # About us section
-│   └── legals/        # Legal documentation
-├── layouts/            # Custom layouts and shortcodes
-├── static/            # Static files (images, etc.)
-└── themes/            # Hugo themes
-```
+- Navigate to the main page of your repository.
+- Click on the "Code" button (green button) near the top right.
+- Select the "Codespaces" tab.
+- Click on "New codespace" to launch a new Codespace environment.
+- Edit files directly within the Codespace and commit and push your changes once you're done.
 
-## Adding New Content
+## What technologies are used for this project?
 
-### Adding a Team Member
-```bash
-hugo new teams/firstname-lastname.md
-```
+This project is built with:
 
-### Adding an Associate
-```bash
-hugo new associates/firstname-lastname.md
-```
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
 
-### Adding Videos
-Use the custom video shortcode:
-```markdown
-{{< video platform="youtube" id="VIDEO_ID" >}}
-```
-or
-```markdown
-{{< video platform="vimeo" id="VIDEO_ID" >}}
-```
-
-## Development
-
-1. Start the development server:
-```bash
-hugo server -D
-```
-
-2. View the site at `http://localhost:1313`
-
-## Taxonomy System
-
-The site uses the following taxonomies:
-- Departments (for team members)
-- Expertise (for associates)
-- Locations
-- Collaboration Areas
-
-## Customization
-
-### CSS Customization
-Custom styles are located in `assets/css/custom.css`
-
-### Layout Customization
-Custom layouts and shortcodes are in the `layouts/` directory
-
-## Deployment
-
-1. Build the site:
-```bash
-hugo --minify
-```
-
-2. The built site will be in the `public/` directory
-
-## Contributing
-
-1. Create a new branch for your changes
-2. Make your changes
-3. Submit a pull request
-
-## Maintenance
-
-- Regularly update Hugo and theme versions
-- Keep content up to date
-- Backup your content regularly
-
-## Support
-
-For questions or issues:
-1. Check the [Hugo documentation](https://gohugo.io/documentation/)
-2. Create an issue in the repository
-3. Contact the development team
-
-## License
-
-[Your License Information Here]
+## How can I deploy this project?
