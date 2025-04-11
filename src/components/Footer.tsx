@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaTwitter, FaLinkedin, FaGithub, FaYoutube } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
   return (
@@ -16,13 +17,16 @@ const Footer: React.FC = () => {
             </p>
             <div className="flex space-x-4">
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-neon-cyan">
-                Twitter
+                <FaTwitter size={24} />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-neon-cyan">
-                LinkedIn
+              <a href="https://linkedin.com/company/secretstartups" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-neon-cyan">
+                <FaLinkedin size={24} />
               </a>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-neon-cyan">
-                GitHub
+              <a href="https://github.com/secretstartups" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-neon-cyan">
+                <FaGithub size={24} />
+              </a>
+              <a href="https://youtube.com/@SecretStartups" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-neon-cyan">
+                <FaYoutube size={24} />
               </a>
             </div>
           </div>
