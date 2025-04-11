@@ -53,3 +53,11 @@ yarn-error.log*
 /.history
 /.sass-cache
 /.eslintcache
+/.cache
+/.next/cache
+/.nuxt/cache
+/.nuxt/dist
+/.nuxt/nuxt
+/.nuxt/nuxt3
+/.nuxt/nuxt3/dist
+code.md

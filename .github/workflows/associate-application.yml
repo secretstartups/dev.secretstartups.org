@@ -1,0 +1,180 @@
+# This workflow processes associate applications submitted via GitHub issues or repository dispatch events.
+# It extracts the application data, creates a new branch, updates the associates.json file,
+# and creates a pull request for review. It also comments on the issue to notify the applicant.
+# The workflow is triggered by two events:
+# 1. `repository_dispatch` event with type `associate_application`
+# 2. `issues` event when an issue is opened or edited.
+# The workflow uses the `actions/github-script` action to comment on the issue and add labels.
+name: Process Associate Applications
+
+on:
+  repository_dispatch:
+    types: [associate_application]
+  issues:
+    types: [opened, edited]
+
+jobs:
+  process-issue-application:
+    runs-on: ubuntu-latest
+    if: |
+      github.event_name == 'issues' && 
+      contains(github.event.issue.labels.*.name, 'associate-application')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Extract application data
+        id: extract
+        run: |
+          ISSUE_BODY="${{ github.event.issue.body }}"
+          
+          # Extract fields from the issue body
+          NAME=$(echo "$ISSUE_BODY" | grep -oP '(?<=\*\*Name:\*\* ).*$' | head -1)
+          EMAIL=$(echo "$ISSUE_BODY" | grep -oP '(?<=\*\*Email:\*\* ).*$' | head -1)
+          ROLE=$(echo "$ISSUE_BODY" | grep -oP '(?<=\*\*Role:\*\* ).*$' | head -1)
+          SKILLS=$(echo "$ISSUE_BODY" | grep -oP '(?<=\*\*Skills:\*\* ).*$' | head -1)
+          GITHUB=$(echo "$ISSUE_BODY" | grep -oP '(?<=\*\*GitHub Username:\*\* ).*$' | head -1)
+          BIO=$(echo "$ISSUE_BODY" | sed -n '/\*\*Bio:\*\*/,/^$/p' | tail -n +2)
+          
+          # Store the extracted data as outputs
+          echo "name=$NAME" >> $GITHUB_OUTPUT
+          echo "email=$EMAIL" >> $GITHUB_OUTPUT
+          echo "role=$ROLE" >> $GITHUB_OUTPUT
+          echo "skills=$SKILLS" >> $GITHUB_OUTPUT
+          echo "github=$GITHUB" >> $GITHUB_OUTPUT
+          
+          # For multiline bio, use a special delimiter
+          echo "bio<<EOF" >> $GITHUB_OUTPUT
+          echo "$BIO" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          
+      - name: Create PR for new associate
+        id: create-pr
+        run: |
+          # Generate a unique branch name
+          BRANCH_NAME="associate/$(echo "${{ steps.extract.outputs.name }}" | tr '[:upper:] ' '[:lower:]-')-$(date +%s)"
+          
+          # Create a new branch
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git checkout -b $BRANCH_NAME
+          
+          # Create associate JSON file
+          SKILLS_JSON=$(echo "${{ steps.extract.outputs.skills }}" | tr ',' '\n' | jq -R . | jq -s .)
+          
+          cat > associate-data.json << EOF
+          {
+            "name": "${{ steps.extract.outputs.name }}",
+            "role": "${{ steps.extract.outputs.role }}",
+            "skills": $SKILLS_JSON,
+            "image": "$([ -n "${{ steps.extract.outputs.github }}" ] && echo "https://github.com/${{ steps.extract.outputs.github }}.png" || echo "/assets/default-avatar.png")",
+            "githubUrl": "$([ -n "${{ steps.extract.outputs.github }}" ] && echo "https://github.com/${{ steps.extract.outputs.github }}" || echo null)",
+            "email": "${{ steps.extract.outputs.email }}",
+            "bio": "${{ steps.extract.outputs.bio }}",
+            "joinedAt": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          }
+          EOF
+          
+          # Update associates.json
+          if [ -f "public/data/associates.json" ]; then
+            jq '. += [input]' public/data/associates.json associate-data.json > temp.json
+            mv temp.json public/data/associates.json
+          else
+            mkdir -p public/data
+            echo '[' > public/data/associates.json
+            cat associate-data.json >> public/data/associates.json
+            echo ']' >> public/data/associates.json
+          fi
+          
+          # Commit and push changes
+          git add public/data/associates.json
+          git commit -m "Add associate: ${{ steps.extract.outputs.name }}"
+          git push origin $BRANCH_NAME
+          
+          # Create PR
+          PR_TITLE="Add associate: ${{ steps.extract.outputs.name }}"
+          PR_BODY="This PR adds a new associate application from ${{ steps.extract.outputs.name }}. Please review the changes and consider merging. This PR was automatically created from issue #${{ github.event.issue.number }}."
+          
+          PR_URL=$(gh pr create --title "$PR_TITLE" --body "$PR_BODY" --base main --head $BRANCH_NAME)
+          echo "pr_url=$PR_URL" >> $GITHUB_OUTPUT
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Comment on issue
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `Thank you for your application! I've created PR: ${process.env.PR_URL} to add you to our associates list. We'll review it shortly.`
+            });
+            
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['processed']
+            });
+        env:
+          PR_URL: ${{ steps.create-pr.outputs.pr_url }}
+            
+  process-dispatch-application:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'repository_dispatch'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Process application data
+        id: process
+        run: |
+          # Extract data from the client payload
+          ASSOCIATE_DATA='${{ toJson(github.event.client_payload.associate) }}'
+          
+          # Extract fields
+          NAME=$(echo $ASSOCIATE_DATA | jq -r '.name')
+          EMAIL=$(echo $ASSOCIATE_DATA | jq -r '.email')
+          ROLE=$(echo $ASSOCIATE_DATA | jq -r '.role')
+          GITHUB=$(echo $ASSOCIATE_DATA | jq -r '.github')
+          SKILLS=$(echo $ASSOCIATE_DATA | jq -r '.skills | join(", ")')
+          BIO=$(echo $ASSOCIATE_DATA | jq -r '.bio')
+          
+          # Generate a unique branch name
+          BRANCH_NAME="associate/$(echo "$NAME" | tr '[:upper:] ' '[:lower:]-')-$(date +%s)"
+          
+          # Create a new branch
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git checkout -b $BRANCH_NAME
+          
+          # Update associates.json
+          if [ -f "public/data/associates.json" ]; then
+            jq ". += [$ASSOCIATE_DATA]" public/data/associates.json > temp.json
+            mv temp.json public/data/associates.json
+          else
+            mkdir -p public/data
+            echo "[" > public/data/associates.json
+            echo "$ASSOCIATE_DATA" >> public/data/associates.json
+            echo "]" >> public/data/associates.json
+          fi
+          
+          # Commit and push changes
+          git add public/data/associates.json
+          git commit -m "Add associate: $NAME"
+          git push origin $BRANCH_NAME
+          
+          # Create PR
+          PR_TITLE="Add associate: $NAME"
+          PR_BODY="This PR adds a new associate application from $NAME. Please review and consider merging."
+          
+          PR_URL=$(gh pr create --title "$PR_TITLE" --body "$PR_BODY" --base main --head $BRANCH_NAME)
+          echo "pr_url=$PR_URL" >> $GITHUB_OUTPUT
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

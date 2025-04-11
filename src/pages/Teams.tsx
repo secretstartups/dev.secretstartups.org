@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Layout from '@/components/Layout';
 import Section from '@/components/Section';
 import ProfileCard from '@/components/ProfileCard';
@@ -7,60 +6,58 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Teams = () => {
-  // Sample team data
-  const teams = [
-    {
-      id: 1,
-      name: "Alpha Team",
-      description: "Specializing in web applications with React and Node.js",
-      members: [
-        {
-          name: "Amara Ndubisi",
-          role: "Frontend Developer",
-          skills: ["React", "Next.js", "TailwindCSS"],
-          image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-          githubUrl: "https://github.com",
-          portfolioUrl: "https://portfolio.com"
-        },
-        {
-          name: "Kwame Mensah",
-          role: "Backend Developer",
-          skills: ["Node.js", "Express", "MongoDB"],
-          image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-          githubUrl: "https://github.com"
-        },
-        {
-          name: "Fatima Ahmed",
-          role: "Full Stack Developer",
-          skills: ["React", "Node.js", "TypeScript"],
-          image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1061&q=80",
-          portfolioUrl: "https://portfolio.com"
+  const [teams, setTeams] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchTeams = async () => {
+      try {
+        const response = await fetch('/data/teams.json');
+        if (!response.ok) {
+          throw new Error('Failed to fetch teams data');
         }
-      ]
-    },
-    {
-      id: 2,
-      name: "Beta Team",
-      description: "Mobile application development with React Native and Flutter",
-      members: [
-        {
-          name: "Malik Ndiaye",
-          role: "Mobile Developer",
-          skills: ["React Native", "Flutter", "Firebase"],
-          image: "https://images.unsplash.com/photo-1531384441138-2736e62e0919?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-          githubUrl: "https://github.com",
-          portfolioUrl: "https://portfolio.com"
-        },
-        {
-          name: "Zainab Osei",
-          role: "UI/UX Designer",
-          skills: ["Figma", "Adobe XD", "Prototyping"],
-          image: "https://images.unsplash.com/photo-1589156280159-27698a70f29e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=772&q=80",
-          portfolioUrl: "https://portfolio.com"
-        }
-      ]
-    }
-  ];
+        const data = await response.json();
+        setTeams(data);
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchTeams();
+  }, []);
+
+  if (loading) {
+    return (
+      <Layout>
+        <Section className="flex justify-center items-center min-h-[50vh]">
+          <div className="text-center">
+            <p className="text-lg">Loading teams...</p>
+          </div>
+        </Section>
+      </Layout>
+    );
+  }
+
+  if (error) {
+    return (
+      <Layout>
+        <Section className="flex justify-center items-center min-h-[50vh]">
+          <div className="text-center">
+            <p className="text-lg text-red-500">Error: {error}</p>
+            <button 
+              onClick={() => window.location.reload()} 
+              className="mt-4 btn-outline"
+            >
+              Try Again
+            </button>
+          </div>
+        </Section>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
