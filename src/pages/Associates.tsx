@@ -4,6 +4,7 @@ import Section from '@/components/Section';
 import ProfileCard from '@/components/ProfileCard';
 import AssociateFormModal from '@/components/AssociateFormModal';
 import { UserPlus } from 'lucide-react';
+// import DataDisplay from '@/components/DataDisplay';
 
 const Associates = () => {
   const [profiles, setProfiles] = useState([]);
@@ -82,6 +83,10 @@ const Associates = () => {
           </button>
         </div>
       </Section>
+
+      {/* <Section className="bg-background border-t border-border">
+        <DataDisplay />
+      </Section> */}
       
       {/* Current Associates Section */}
       <Section className="bg-card border-t border-border">

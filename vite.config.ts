@@ -11,6 +11,9 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
   ],
+  define: {
+    'import.meta.env.DATABASE_URL': JSON.stringify(process.env.VITE_DATABASE_URL)
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

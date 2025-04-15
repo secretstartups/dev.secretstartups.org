@@ -33,7 +33,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
       <div className="min-h-screen flex flex-col items-center justify-center text-center relative z-20 px-4">
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight animate-pulse-slow">
-          <span className="block">Code Boldly.</span>
+          {/* <span className="block">Code Boldly.</span> */}
           <span className="block">Collaborate Globally.</span>
           <span className="block text-primary">Get Paid Fairly.</span>
         </h1>
