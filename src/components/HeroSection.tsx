@@ -34,17 +34,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight animate-pulse-slow">
           {/* <span className="block">Code Boldly.</span> */}
-          <span className="block">Collaborate Globally.</span>
-          <span className="block text-primary">Get Paid Fairly.</span>
+          <span className="block">SecretStartups</span>
+          <span className="block">Build, Collaborate, Earn, Learn.</span>
         </h1>
       </div>
 
       {/* Secondary content below hero */}
       <div className="container mx-auto px-4 md:px-6 relative z-20 pb-24">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xl md:text-2xl text-foreground/80 mb-8">
-            SecretStartups connects African tech talent with opportunities, resources, and a vibrant developer community.
-          </p>
+            <p className="text-xl md:text-2xl text-foreground/80 mb-8">
+            We provide developers with everything needed to generate income sooner, 
+            from paid apprenticeships, and developer acceleration and collaboration 
+            tools, to a growing ecosystem of trusted <span className="font-semibold text-primary">building blocks</span> to rapidly go-to-market. (CTA)
+            </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/associates" className="btn-primary">

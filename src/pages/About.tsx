@@ -24,33 +24,30 @@ const About = () => {
           <div>
             <h2 className="mb-4">Our <span className="gradient-text">Mission</span></h2>
             <p className="text-lg text-muted-foreground mb-6">
-              SecretStartups is a non-profit initiative dedicated to empowering African tech talent by connecting them with employment, apprenticeship, education, and workspace opportunities.
-            </p>
-            <p className="text-lg text-muted-foreground mb-6">
-              We believe in the untapped potential of African developers and are committed to building bridges between talent and opportunity.
+              SecretStartups is a non-profit initiative dedicated to empowering African tech talent. We believe in the untapped potential of African developers, and are committed to building bridges between talent and opportunities.
             </p>
             <p className="text-lg text-muted-foreground">
-              Through our platform, members gain access to resources, tools, technologies, and a vibrant developer community, allowing them to build quickly and efficiently while being introduced to cool projects and collaboration opportunities.
+              Through our platform, associates gain access to the resources needed to accelerate their professional development, gain exposure to enterprise-class systems and processes, establish collaboratives, work with best-in-class development productivity tools, publish and monetise their portfolios, bid on project tenders, and market themselves directly to employers.
             </p>
           </div>
           <div className="relative">
             <div className="aspect-video rounded-lg overflow-hidden border border-border neon-border">
               <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" 
-                alt="Team collaboration" 
-                className="w-full h-full object-cover"
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" 
+          alt="Team collaboration" 
+          className="w-full h-full object-cover"
               />
             </div>
           </div>
         </div>
-      </Section>
-      
-      {/* What We Do Section */}
-      <Section className="bg-card border-y border-border">
+            </Section>
+            
+            {/* What We Do Section */}
+            <Section className="bg-card border-y border-border">
         <div className="mb-12 text-center">
           <h2 className="mb-4">What We <span className="gradient-text">Do</span></h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            SecretStartups supports talent with access to projects, workspace, tools, and networking opportunities.
+            We provide comprehensive support for African developers to showcase their skills and connect with opportunities.
           </p>
         </div>
         
@@ -59,9 +56,9 @@ const About = () => {
             <div className="h-12 w-12 flex items-center justify-center rounded-lg bg-primary/10 text-neon-cyan mb-4">
               <Briefcase className="h-6 w-6" />
             </div>
-            <h3 className="text-xl font-bold mb-2">Employment</h3>
+            <h3 className="text-xl font-bold mb-2">Professional Growth</h3>
             <p className="text-muted-foreground">
-              We connect talented developers with companies looking for their skills, creating employment opportunities.
+              Access to enterprise-class systems and processes for accelerated professional development.
             </p>
           </div>
           
@@ -69,9 +66,9 @@ const About = () => {
             <div className="h-12 w-12 flex items-center justify-center rounded-lg bg-primary/10 text-neon-cyan mb-4">
               <GraduationCap className="h-6 w-6" />
             </div>
-            <h3 className="text-xl font-bold mb-2">Education</h3>
+            <h3 className="text-xl font-bold mb-2">Portfolio Building</h3>
             <p className="text-muted-foreground">
-              We provide resources and learning materials to help developers expand their technical knowledge.
+              Tools and platforms to publish, showcase, and monetize your development portfolio.
             </p>
           </div>
           
@@ -79,9 +76,9 @@ const About = () => {
             <div className="h-12 w-12 flex items-center justify-center rounded-lg bg-primary/10 text-neon-cyan mb-4">
               <BookOpen className="h-6 w-6" />
             </div>
-            <h3 className="text-xl font-bold mb-2">Resources</h3>
+            <h3 className="text-xl font-bold mb-2">Project Access</h3>
             <p className="text-muted-foreground">
-              We offer access to tools, technologies, and resources that enable efficient development.
+              Opportunities to bid on project tenders and gain real-world development experience.
             </p>
           </div>
           
@@ -89,13 +86,13 @@ const About = () => {
             <div className="h-12 w-12 flex items-center justify-center rounded-lg bg-primary/10 text-neon-cyan mb-4">
               <Users className="h-6 w-6" />
             </div>
-            <h3 className="text-xl font-bold mb-2">Community</h3>
+            <h3 className="text-xl font-bold mb-2">Market Exposure</h3>
             <p className="text-muted-foreground">
-              We foster a vibrant community where developers can collaborate, share knowledge, and grow together.
+              Direct access to employers and platforms to market your skills and capabilities.
             </p>
           </div>
         </div>
-      </Section>
+            </Section>
       
       {/* Impact Stories Section */}
       <Section>
@@ -123,7 +120,7 @@ const About = () => {
                 />
               </div>
               <div>
-                <h4 className="font-bold">David Okonkwo</h4>
+                <h4 className="font-bold">David O</h4>
                 <p className="text-sm text-muted-foreground">Full Stack Developer, Lagos</p>
               </div>
             </div>
@@ -145,7 +142,7 @@ const About = () => {
                 />
               </div>
               <div>
-                <h4 className="font-bold">Grace Mutambo</h4>
+                <h4 className="font-bold">Grace M</h4>
                 <p className="text-sm text-muted-foreground">Frontend Developer, Nairobi</p>
               </div>
             </div>
