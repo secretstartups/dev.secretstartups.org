@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Layout from '@/components/Layout';
 import Section from '@/components/Section';
 import ProfileCard from '@/components/ProfileCard';
-import AssociateFormModal from '@/components/AssociateFormModal';
 import { UserPlus } from 'lucide-react';
 // import DataDisplay from '@/components/DataDisplay';
 
@@ -47,7 +46,7 @@ const Associates = () => {
               role: 'Developer', // Default role
               skills: ['JavaScript', 'React', 'Node.js'], // Default skills
               image: `/assets/ss-avatar.png`, // Default image from assets
-              portfolioUrl: '/' // Route to homepage for now
+              portfolioUrl: '#' // Route to homepage for now
             }));
             
             // Get 6 random profiles or all if less than 6
@@ -182,7 +181,6 @@ const Associates = () => {
       </Section>
       
       {/* Form Modal */}
-      <AssociateFormModal isOpen={isFormOpen} onClose={closeForm} />
     </Layout>
   );
 };

@@ -45,11 +45,11 @@ jobs:
       - name: Ensure data directory exists
         run: mkdir -p public/data
 
-      - name: Debug network info
-        run: |
-          ping -c 4 crm.secretstartups.org
-          traceroute crm.secretstartups.org
-          curl -v --connect-timeout 10 https://crm.secretstartups.org
+      # - name: Debug network info
+      #   run: |
+      #     ping -c 4 crm.secretstartups.org
+      #     traceroute crm.secretstartups.org
+      #     curl -v --connect-timeout 10 https://crm.secretstartups.org
         
       - name: Fetch API data
         run: |

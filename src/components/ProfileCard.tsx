@@ -63,7 +63,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
               rel="noopener noreferrer"
               className="text-sm text-foreground/80 hover:text-neon-cyan"
             >
-              Portfolio
+              View Portfolio → 
             </a>
           )}
         </div>

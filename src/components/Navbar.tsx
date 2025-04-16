@@ -101,6 +101,15 @@ const Navbar: React.FC = () => {
           <div className="flex items-center">
             {isMobile ? <MobileNav /> : <DesktopNav />}
           </div>
+          {/* Right Side: Signup Button */}
+          <div className="hidden md:block">
+            <Link 
+              to="/"
+              className="ml-4 px-4 py-2 rounded-lg bg-neon-cyan text-background font-semibold hover:bg-neon-cyan/90 transition"
+            >
+              Sign Up
+            </Link>
+          </div>
         </div>
       </div>
     </header>
