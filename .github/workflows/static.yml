@@ -51,14 +51,18 @@ jobs:
       #     traceroute crm.secretstartups.org
       #     curl -v --connect-timeout 10 https://crm.secretstartups.org
         
-      - name: Fetch API data
+      - name: Fetch API data (use existing file on failure)
         run: |
-          if curl --connect-timeout 30 --max-time 60 --retry 3 --retry-delay 5 -X GET 'https://crm.secretstartups.org/api/users' -H 'accept: application/json' > public/data/associates.json; then
-            echo "API data fetched successfully"
+          echo "Attempting to fetch fresh data from API..."
+          TEMP_FILE="public/data/tmp_associates.json"
+          if curl --connect-timeout 30 --max-time 60 --retry 3 --retry-delay 5 \
+            -X GET 'https://crm.secretstartups.org/api/users' \
+            -H 'accept: application/json' -o "$TEMP_FILE"; then
+
+            echo "✅ API data fetched successfully. Updating associates.json..."
+            mv "$TEMP_FILE" public/data/associates.json
           else
-            echo "API request failed, using fallback data"
-            # Use a more substantial fallback data file you maintain in your repo
-            cp fallback-data/associates.json public/data/associates.json
+            echo "⚠️ API fetch failed. Keeping existing public/data/associates.json."
           fi
           
       # Preflight check - make sure the data was fetched successfully
