@@ -5,7 +5,9 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
+  # Run daily at midnight to fetch fresh data
+  schedule:
+    - cron: '0 0 * * *'
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -20,7 +22,6 @@ permissions:
 concurrency:
   group: "pages"
   cancel-in-progress: false
-
 
 jobs:
   deploy:
@@ -40,6 +41,27 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+        
+      - name: Ensure data directory exists
+        run: mkdir -p public/data
+        
+      - name: Fetch API data
+        run: |
+          curl -X GET 'https://crm.secretstartups.org/api/users' -H 'accept: application/json' > public/data/associates.json
+          
+      # Preflight check - make sure the data was fetched successfully
+      - name: Verify API data
+        run: |
+          if [ -s public/data/associates.json ]; then
+            echo "API data fetched successfully"
+            cat public/data/associates.json
+          else
+            echo "API data fetch failed, falling back to defaults if available"
+            # Create minimal fallback data if needed
+            if [ ! -f public/data/associates.json ]; then
+              echo '[{"id":"fallback-id","name":"Example User","email":"example@secretstartups.org"}]' > public/data/associates.json
+            fi
+          fi
 
       - name: Build project
         run: npm run build

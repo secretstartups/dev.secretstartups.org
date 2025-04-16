@@ -12,16 +12,76 @@ const Associates = () => {
   const [error, setError] = useState(null);
   const [isFormOpen, setIsFormOpen] = useState(false);
 
+  // Helper function to format name (first name and first letter of last name)
+  const formatName = (fullName) => {
+    const nameParts = fullName.trim().split(' ');
+    if (nameParts.length === 1) return nameParts[0];
+    
+    const firstName = nameParts[0];
+    const lastNameInitial = nameParts[1].charAt(0).toUpperCase();
+    return `${firstName} ${lastNameInitial}.`;
+  };
+
+  // Helper function to randomly select 6 items from an array
+  const getRandomSample = (array, count) => {
+    const shuffled = [...array].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+  };
+
   useEffect(() => {
     const fetchProfiles = async () => {
       try {
-        // For GitHub Pages, we'll fetch from the relative path
-        const response = await fetch('/data/associates.json');
-        if (!response.ok) {
+        // Try to fetch from the API first
+        try {
+          const apiResponse = await fetch('https://crm.secretstartups.org/api/users');
+          
+          if (apiResponse.ok) {
+            const apiData = await apiResponse.json();
+            
+            // Transform the API data to match the required format
+            const transformedData = apiData.map(user => ({
+              name: formatName(user.name),
+              email: user.email,
+              id: user.id,
+              // Default values for missing fields
+              role: 'Developer', // Default role
+              skills: ['JavaScript', 'React', 'Node.js'], // Default skills
+              image: `/assets/ss-avatar.png`, // Default image from assets
+              portfolioUrl: '/' // Route to homepage for now
+            }));
+            
+            // Get 6 random profiles or all if less than 6
+            const sampleSize = Math.min(6, transformedData.length);
+            const randomProfiles = getRandomSample(transformedData, sampleSize);
+            
+            setProfiles(randomProfiles);
+            setLoading(false);
+            return; // Exit early if API fetch was successful
+          }
+        } catch (apiError) {
+          console.log('API fetch failed, falling back to local data:', apiError);
+          // Continue to fallback if API fetch fails
+        }
+        
+        // Fallback to local JSON if API fetch fails
+        const fallbackResponse = await fetch('/data/associates.json');
+        if (!fallbackResponse.ok) {
           throw new Error('Failed to fetch associates data');
         }
-        const data = await response.json();
-        setProfiles(data);
+        const fallbackData = await fallbackResponse.json();
+        
+        // Apply formatName to the fallback data as well
+        const processedFallbackData = fallbackData.map(profile => ({
+          ...profile,
+          name: formatName(profile.name),
+          portfolioUrl: '/' // Route to homepage for now
+        }));
+        
+        // Get 6 random profiles or all if less than 6
+        const sampleSize = Math.min(6, processedFallbackData.length);
+        const randomProfiles = getRandomSample(processedFallbackData, sampleSize);
+        
+        setProfiles(randomProfiles);
         setLoading(false);
       } catch (err) {
         setError(err.message);
@@ -100,12 +160,11 @@ const Associates = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {profiles.map((profile, index) => (
             <ProfileCard 
-              key={index}
+              key={profile.id || index}
               name={profile.name}
               role={profile.role}
               skills={profile.skills}
               image={profile.image}
-              githubUrl={profile.githubUrl}
               portfolioUrl={profile.portfolioUrl}
             />
           ))}
