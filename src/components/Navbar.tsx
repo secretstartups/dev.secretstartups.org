@@ -17,6 +17,7 @@ const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const isMobile = useIsMobile();
+  const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -83,6 +84,8 @@ const Navbar: React.FC = () => {
 
   return (
     <header 
+    onMouseEnter={() => setHovered(true)}
+    onMouseLeave={() => setHovered(false)}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out ${
         scrolled ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
       } ${scrolled ? "backdrop-blur-lg bg-background/80 border-b border-border" : ""}`}
