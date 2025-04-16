@@ -21,7 +21,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80')",
+            "",
           filter: "brightness(0.4) saturate(1.2)",
         }}
       ></div>
@@ -35,7 +35,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight animate-pulse-slow">
           {/* <span className="block">Code Boldly.</span> */}
           <span className="block">SecretStartups</span>
-          <span className="block">Build, Collaborate, Earn, Learn.</span>
+          <span className="block text-2xl">Build, Collaborate, Earn, Learn.</span>
         </h1>
       </div>
 
@@ -45,7 +45,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             <p className="text-xl md:text-2xl text-foreground/80 mb-8">
             We provide developers with everything needed to generate income sooner, 
             from paid apprenticeships, and developer acceleration and collaboration 
-            tools, to a growing ecosystem of trusted <span className="font-semibold text-primary">building blocks</span> to rapidly go-to-market. (CTA)
+            tools, to a growing ecosystem of trusted <span className="font-semibold text-primary">building blocks</span> to rapidly go-to-market.
             </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -53,9 +53,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
               Join as a Developer
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
-            <Link to="/teams" className="btn-outline">
+            {/* <Link to="/teams" className="btn-outline">
               Find a Team
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

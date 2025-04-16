@@ -33,12 +33,12 @@ const Index = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <ResourceCard
             title="Paid Apprenticeships"
-            description="Once you've created your CV and demonstrated your expertise, our platform will begin offering you relevant paid apprenticeship opportunities."
+            description="Create your CV and demonstrate your expertise, our platform will offer you relevant paid apprenticeship opportunities."
             icon={<Briefcase size={36} />}
           />
           <ResourceCard
             title="Education"
-            description="We provide access to educational material, a vibrant remote-first community, and ample opportunity to learn on the job."
+            description="We provide access to educational material, a vibrant remote-first community, and ample opportunity ."
             icon={<GraduationCap size={36} />}
           />
           <ResourceCard
