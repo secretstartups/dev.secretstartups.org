@@ -38,7 +38,7 @@ const Index = () => {
           />
           <ResourceCard
             title="Education"
-            description="We provide access to educational material, a vibrant remote-first community, and ample opportunity ."
+            description="We provide access to educational material, a vibrant remote-first community, and ample opportunity for professional development."
             icon={<GraduationCap size={36} />}
           />
           <ResourceCard
