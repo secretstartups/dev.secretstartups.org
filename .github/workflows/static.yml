@@ -44,10 +44,22 @@ jobs:
         
       - name: Ensure data directory exists
         run: mkdir -p public/data
+
+      - name: Debug network info
+        run: |
+          ping -c 4 crm.secretstartups.org
+          traceroute crm.secretstartups.org
+          curl -v --connect-timeout 10 https://crm.secretstartups.org
         
       - name: Fetch API data
         run: |
-          curl -X GET 'https://crm.secretstartups.org/api/users' -H 'accept: application/json' > public/data/associates.json
+          if curl --connect-timeout 30 --max-time 60 --retry 3 --retry-delay 5 -X GET 'https://crm.secretstartups.org/api/users' -H 'accept: application/json' > public/data/associates.json; then
+            echo "API data fetched successfully"
+          else
+            echo "API request failed, using fallback data"
+            # Use a more substantial fallback data file you maintain in your repo
+            cp fallback-data/associates.json public/data/associates.json
+          fi
           
       # Preflight check - make sure the data was fetched successfully
       - name: Verify API data
