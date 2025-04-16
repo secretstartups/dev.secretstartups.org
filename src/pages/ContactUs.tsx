@@ -65,17 +65,18 @@ const ContactUs = () => {
       <Section className="py-16 md:py-24">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">Contact Us</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">Join SecretStartups</h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Have questions about SecretStartups.org? We're here to help! Fill out the form below, and our team will get back to you as soon as possible.
+              Become part of our community of developers building impactful projects!
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-start">
+          <div className="">
             <div className="bg-card rounded-lg p-6 border border-border shadow-md">
-              <h3 className="text-2xl font-bold mb-4">Get In Touch</h3>
+              <h3 className="text-2xl font-bold mb-4">Getting Started</h3>
               <p className="mb-6 text-muted-foreground">
-                We're excited to hear from you! Whether you're interested in joining as a developer, looking for team collaboration, or have general inquiries about our nonprofit mission.
+                The best way to join SecretStartups is to explore our projects and start contributing. 
+                Check out our GitHub repositories and join our community discussions.
               </p>
 
               <div className="space-y-4">
@@ -84,108 +85,25 @@ const ContactUs = () => {
                     <Send size={20} />
                   </div>
                   <div>
-                    <h4 className="font-medium">Email Us</h4>
-                    <p className="text-muted-foreground">info@secretstartups.org</p>
+                    <h4 className="font-medium">Have a specific inquiry?</h4>
+                    <p className="text-muted-foreground">Email us at info@secretstartups.org</p>
+                    <p className="text-sm text-muted-foreground mt-2">
+                      Note: Please only use email for urgent matters. For general involvement, 
+                      we encourage you to engage directly through our GitHub projects and community channels.
+                    </p>
                   </div>
                 </div>
                 <div className="border-t border-border my-4"></div>
-                <p className="text-sm text-muted-foreground">
-                  Response Time: We aim to respond to all inquiries within 24-48 hours during business days.
-                </p>
+                <div className="text-sm text-muted-foreground">
+                  <p className="font-medium mb-2">Why become an associate?</p>
+                  <ul className="list-disc pl-5 space-y-2">
+                    <li>Work on meaningful open-source projects</li>
+                    <li>Collaborate with passionate developers</li>
+                    <li>Build your portfolio with impactful work</li>
+                    <li>Learn and grow in a supportive community</li>
+                  </ul>
+                </div>
               </div>
-            </div>
-
-            <div className="bg-card rounded-lg p-6 border border-border shadow-md">
-              <h3 className="text-2xl font-bold mb-4">Contact Form</h3>
-              
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Name</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Your name" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Email</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Your email address" type="email" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  
-                  <FormField
-                    control={form.control}
-                    name="phone"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Phone (Optional)</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Your phone number" type="tel" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Message</FormLabel>
-                        <FormControl>
-                          <Textarea 
-                            placeholder="Tell us how we can help or anything else you'd like to share"
-                            className="min-h-[120px]"
-                            {...field} 
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="subscribe"
-                    render={({ field }) => (
-                      <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md p-4 border border-border">
-                        <FormControl>
-                          <Checkbox
-                            checked={field.value}
-                            onCheckedChange={field.onChange}
-                          />
-                        </FormControl>
-                        <div className="space-y-1 leading-none">
-                          <FormLabel>Subscribe to newsletter</FormLabel>
-                          <p className="text-sm text-muted-foreground">
-                            Stay updated with our latest opportunities and resources.
-                          </p>
-                        </div>
-                      </FormItem>
-                    )}
-                  />
-
-                  <Button type="submit" className="w-full">
-                    <Send className="mr-2 h-4 w-4" /> Send Message
-                  </Button>
-                </form>
-              </Form>
             </div>
           </div>
         </div>
