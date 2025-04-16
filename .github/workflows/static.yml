@@ -49,127 +49,18 @@ jobs:
         run: |
           curl -X GET 'https://crm.secretstartups.org/api/users' -H 'accept: application/json' > public/data/associates.json
           
-      # Preflight check - make sure the data was fetched successfully and has enough entries
+      # Preflight check - make sure the data was fetched successfully
       - name: Verify API data
         run: |
           if [ -s public/data/associates.json ]; then
             echo "API data fetched successfully"
-            # Count the number of items in the JSON array
-            ITEM_COUNT=$(jq length public/data/associates.json)
-            echo "Found $ITEM_COUNT associates in API response"
-            
-            # If we have fewer than 6 items, add some fallback entries 
-            if [ "$ITEM_COUNT" -lt 6 ]; then
-              echo "Adding fallback entries to ensure at least 6 associates"
-              # Create or update with a more comprehensive fallback
-              cat > public/data/associates.json << 'EOL'
-[
-  {
-    "id": "api-user-1",
-    "name": "Alex Johnson",
-    "email": "alex.j@secretstartups.org",
-    "role": "Frontend Developer",
-    "skills": ["React", "TypeScript", "Tailwind CSS"],
-    "image": "/assets/ss-avatar.png"
-  },
-  {
-    "id": "api-user-2",
-    "name": "Sam Williams",
-    "email": "sam.w@secretstartups.org",
-    "role": "Backend Developer",
-    "skills": ["Node.js", "Express", "MongoDB"],
-    "image": "/assets/ss-avatar.png"
-  },
-  {
-    "id": "api-user-3",
-    "name": "Jamie Taylor",
-    "email": "jamie.t@secretstartups.org",
-    "role": "Full Stack Developer",
-    "skills": ["React", "Node.js", "PostgreSQL"],
-    "image": "/assets/ss-avatar.png"
-  },
-  {
-    "id": "api-user-4",
-    "name": "Morgan Lee",
-    "email": "morgan.l@secretstartups.org",
-    "role": "DevOps Engineer",
-    "skills": ["Docker", "Kubernetes", "AWS"],
-    "image": "/assets/ss-avatar.png"
-  },
-  {
-    "id": "api-user-5",
-    "name": "Casey Chen",
-    "email": "casey.c@secretstartups.org",
-    "role": "Mobile Developer",
-    "skills": ["Flutter", "React Native", "Firebase"],
-    "image": "/assets/ss-avatar.png"
-  },
-  {
-    "id": "api-user-6",
-    "name": "Jordan Patel",
-    "email": "jordan.p@secretstartups.org",
-    "role": "UX/UI Designer",
-    "skills": ["Figma", "Adobe XD", "Sketch"],
-    "image": "/assets/ss-avatar.png"
-  }
-]
-EOL
-            fi
+            cat public/data/associates.json
           else
-            echo "API data fetch failed, creating fallback data"
-            # Create minimal fallback data
-            cat > public/data/associates.json << 'EOL'
-[
-  {
-    "id": "fallback-1",
-    "name": "Alex Johnson",
-    "email": "alex.j@secretstartups.org",
-    "role": "Frontend Developer",
-    "skills": ["React", "TypeScript", "Tailwind CSS"],
-    "image": "/assets/ss-avatar.png"
-  },
-  {
-    "id": "fallback-2",
-    "name": "Sam Williams",
-    "email": "sam.w@secretstartups.org",
-    "role": "Backend Developer",
-    "skills": ["Node.js", "Express", "MongoDB"],
-    "image": "/assets/ss-avatar.png"
-  },
-  {
-    "id": "fallback-3",
-    "name": "Jamie Taylor",
-    "email": "jamie.t@secretstartups.org",
-    "role": "Full Stack Developer",
-    "skills": ["React", "Node.js", "PostgreSQL"],
-    "image": "/assets/ss-avatar.png"
-  },
-  {
-    "id": "fallback-4",
-    "name": "Morgan Lee",
-    "email": "morgan.l@secretstartups.org",
-    "role": "DevOps Engineer",
-    "skills": ["Docker", "Kubernetes", "AWS"],
-    "image": "/assets/ss-avatar.png"
-  },
-  {
-    "id": "fallback-5",
-    "name": "Casey Chen",
-    "email": "casey.c@secretstartups.org",
-    "role": "Mobile Developer",
-    "skills": ["Flutter", "React Native", "Firebase"],
-    "image": "/assets/ss-avatar.png"
-  },
-  {
-    "id": "fallback-6",
-    "name": "Jordan Patel",
-    "email": "jordan.p@secretstartups.org",
-    "role": "UX/UI Designer",
-    "skills": ["Figma", "Adobe XD", "Sketch"],
-    "image": "/assets/ss-avatar.png"
-  }
-]
-EOL
+            echo "API data fetch failed, falling back to defaults if available"
+            # Create minimal fallback data if needed
+            if [ ! -f public/data/associates.json ]; then
+              echo '[{"id":"fallback-id","name":"Example User","email":"example@secretstartups.org"}]' > public/data/associates.json
+            fi
           fi
 
       - name: Build project
