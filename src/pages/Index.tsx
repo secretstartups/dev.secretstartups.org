@@ -155,7 +155,7 @@ const Index = () => {
                 />
               </div>
               <div className="flex-grow">
-                <h4 className="font-bold">David O</h4>
+                <h4 className="font-bold">David O.</h4>
                 <p className="text-sm text-muted-foreground">
                   Senior Backend Engineer
                 </p>
@@ -194,7 +194,7 @@ const Index = () => {
                 />
               </div>
               <div className="flex-grow">
-                <h4 className="font-bold">Grace M</h4>
+                <h4 className="font-bold">Grace M.</h4>
                 <p className="text-sm text-muted-foreground">
                   Frontend Architect
                 </p>
