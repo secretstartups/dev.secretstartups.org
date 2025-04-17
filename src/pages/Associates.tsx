@@ -152,7 +152,7 @@ const Associates = () => {
         <div className="mb-12">
           <h2 className="mb-4">Meet Our <span className="gradient-text">Associates</span></h2>
           <p className="text-lg text-muted-foreground">
-            These talented developers are part of our network, building amazing projects across Africa.
+          Meet some of the brilliant minds from our network, randomly selected and actively building amazing projects across Africa.
           </p>
         </div>
         
