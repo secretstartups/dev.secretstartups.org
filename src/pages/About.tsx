@@ -120,7 +120,7 @@ const About = () => {
                 />
               </div>
               <div>
-                <h4 className="font-bold">David O</h4>
+                <h4 className="font-bold">David O.</h4>
                 <p className="text-sm text-muted-foreground">Full Stack Developer, Lagos</p>
               </div>
             </div>
@@ -142,7 +142,7 @@ const About = () => {
                 />
               </div>
               <div>
-                <h4 className="font-bold">Grace M</h4>
+                <h4 className="font-bold">Grace M.</h4>
                 <p className="text-sm text-muted-foreground">Frontend Developer, Nairobi</p>
               </div>
             </div>
@@ -163,45 +163,67 @@ const About = () => {
           <div className="text-center">
             <div className="h-40 w-40 rounded-full overflow-hidden mx-auto mb-4 border-4 border-neon-cyan">
               <img 
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" 
+                src="assets/avatar_1.png" 
                 alt="Team member"
                 className="h-full w-full object-cover"
               />
             </div>
-            <h3 className="text-xl font-bold mb-1">Michael Adeyemi</h3>
-            <p className="text-muted-foreground mb-4">Founder & CEO</p>
+            <h3 className="text-xl font-bold mb-1">Onsongo O.</h3>
+            <p className="text-muted-foreground mb-4">Software Engineer</p>
             <p className="text-foreground/80 max-w-xs mx-auto">
-              Tech entrepreneur with a passion for developing talent across Africa.
+            Outside his sleek ops dashboard,Onsongo codes generative music using MIDI + AI to help him focus — 
+            each line of code gets its own beat. On weekends, he hosts underground hackathons on an abandoned train carriage that runs entirely on solar and Node.js.
             </p>
           </div>
           
           <div className="text-center">
             <div className="h-40 w-40 rounded-full overflow-hidden mx-auto mb-4 border-4 border-neon-purple">
               <img 
-                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" 
+                src="assets/avatar_2.png" 
                 alt="Team member"
                 className="h-full w-full object-cover"
               />
             </div>
-            <h3 className="text-xl font-bold mb-1">Nneka Okafor</h3>
-            <p className="text-muted-foreground mb-4">COO</p>
+            <h3 className="text-xl font-bold mb-1">Brandon O.</h3>
+            <p className="text-muted-foreground mb-4">Software Engineer</p>
             <p className="text-foreground/80 max-w-xs mx-auto">
-              Operations expert with experience in scaling organizations across multiple countries.
+            By day, he’s debugging payment flows. By night, he’s using LIDAR and GPT-7 to search for 
+            ancient startup pitch decks buried in forgotten email threads. Once built a Chrome extension 
+            that only lets you tweet if your code compiles… in Morse code
+            </p>
+          </div>
+
+          <div className="text-center">
+            <div className="h-40 w-40 rounded-full overflow-hidden mx-auto mb-4 border-4 border-neon-purple">
+              <img 
+                src="assets/avatar_3.png" 
+                alt="Team member"
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <h3 className="text-xl font-bold mb-1">Fily S.</h3>
+            <p className="text-muted-foreground mb-4">Software Engineer</p>
+            <p className="text-foreground/80 max-w-xs mx-auto">
+            On weekends, he builds Kubernetes clusters for her cat’s various hobbies — including a feline-only 
+            social network called "MeowSQL." He keeps a rubber duck debugger named “Duck Norris” who reportedly 
+            fixed a memory leak once. True story.
             </p>
           </div>
           
           <div className="text-center">
             <div className="h-40 w-40 rounded-full overflow-hidden mx-auto mb-4 border-4 border-neon-blue">
               <img 
-                src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" 
+                src="assets/avatar_4.png" 
                 alt="Team member"
                 className="h-full w-full object-cover"
               />
             </div>
-            <h3 className="text-xl font-bold mb-1">Samuel Mensah</h3>
-            <p className="text-muted-foreground mb-4">CTO</p>
+            <h3 className="text-xl font-bold mb-1">Solomon N.</h3>
+            <p className="text-muted-foreground mb-4">Software Engineer</p>
             <p className="text-foreground/80 max-w-xs mx-auto">
-              Software architect with a decade of experience building scalable systems.
+            Solomon runs microservices, macroproblems, and a side hustle grading tech memes for syntax accuracy. 
+            He once replaced all 500 error messages with dad jokes and productivity went up 2.3%. Not scientifically 
+            proven, but spiritually confirmed.
             </p>
           </div>
         </div>

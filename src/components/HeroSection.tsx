@@ -50,27 +50,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
       </span>
     );
   });
-  // const colorfulLetters = 'SecretStartups'.split('').map((char, i) => {
-  //   const colors = [
-  //     'text-red-500',
-  //     'text-green-500',
-  //     'text-blue-500',
-  //     'text-yellow-400',
-  //     'text-pink-500',
-  //     'text-purple-500',
-  //     'text-indigo-500',
-  //     'text-orange-500',
-  //     'text-teal-500',
-  //   ];
-  //   const colorClass = colors[i % colors.length];
-  //   return (
-  //     <span key={i} className={colorClass}>
-  //       {char}
-  //     </span>
-  //   );
-  // });
-
-
 
   return (
     <section

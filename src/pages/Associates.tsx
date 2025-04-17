@@ -124,6 +124,10 @@ const Associates = () => {
     );
   }
 
+  const handleApplyClick = () => {
+    window.location.href = 'https://associates.secretstartups.org/auth/register';
+  };
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -134,7 +138,7 @@ const Associates = () => {
             Show the world what you can do. Join a network of talented developers, get matched to paid work, and build your career in tech.
           </p>
           <button 
-            onClick={openForm}
+            onClick={handleApplyClick}
             className="btn-primary flex items-center justify-center mx-auto"
           >
             <UserPlus className="mr-2 h-5 w-5" />
@@ -142,10 +146,6 @@ const Associates = () => {
           </button>
         </div>
       </Section>
-
-      {/* <Section className="bg-background border-t border-border">
-        <DataDisplay />
-      </Section> */}
       
       {/* Current Associates Section */}
       <Section className="bg-card border-t border-border">
@@ -171,7 +171,7 @@ const Associates = () => {
         
         <div className="mt-12 text-center">
           <button 
-            onClick={openForm}
+            onClick={handleApplyClick}
             className="btn-primary inline-flex items-center"
           >
             <UserPlus className="mr-2 h-5 w-5" />
@@ -180,7 +180,6 @@ const Associates = () => {
         </div>
       </Section>
       
-      {/* Form Modal */}
     </Layout>
   );
 };
