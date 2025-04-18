@@ -4,6 +4,7 @@ import Section from '@/components/Section';
 import ProfileCard from '@/components/ProfileCard';
 import { UserPlus } from 'lucide-react';
 // import DataDisplay from '@/components/DataDisplay';
+const associatesImage = '/assets/ss-avatar.png';
 
 const Associates = () => {
   const [profiles, setProfiles] = useState([]);
@@ -45,7 +46,7 @@ const Associates = () => {
               // Default values for missing fields
               role: 'Developer', // Default role
               skills: ['JavaScript', 'React', 'Node.js'], // Default skills
-              image: `/assets/ss-avatar.png`, // Default image from assets
+              image: associatesImage, // Default image from assets
               portfolioUrl: '#' // Route to homepage for now
             }));
             
