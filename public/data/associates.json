@@ -1,0 +1,36 @@
+[
+  {
+    "name": "Amara Ndubisi",
+    "role": "Frontend Developer",
+    "skills": ["React", "Next.js", "TailwindCSS"],
+    "portfolioUrl": "https://portfolio.com"
+  },
+  {
+    "name": "Kwame Mensah",
+    "role": "Backend Developer",
+    "skills": ["Node.js", "Express", "MongoDB"]
+  },
+  {
+    "name": "Fatima Ahmed",
+    "role": "Full Stack Developer",
+    "skills": ["React", "Node.js", "TypeScript"],
+    "portfolioUrl": "https://portfolio.com"
+  },
+  {
+    "name": "Malik Ndiaye",
+    "role": "Mobile Developer",
+    "skills": ["React Native", "Flutter", "Firebase"],
+    "portfolioUrl": "https://portfolio.com"
+  },
+  {
+    "name": "Zainab Osei",
+    "role": "UI/UX Designer",
+    "skills": ["Figma", "Adobe XD", "Prototyping"],
+    "portfolioUrl": "https://portfolio.com"
+  },
+  {
+    "name": "Tendai Moyo",
+    "role": "DevOps Engineer",
+    "skills": ["Docker", "Kubernetes", "AWS"]
+  }
+]
