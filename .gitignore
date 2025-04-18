@@ -12,7 +12,6 @@
 
 # Generated
 /resources
-/public
 
 # Synced from external data sources (scripts/sync-data.sh)
 /data/public
