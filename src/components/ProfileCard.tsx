@@ -22,7 +22,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
     <div className="bg-card rounded-lg overflow-hidden border border-border card-hover">
       <div className="relative h-48">
         <img 
-          src={image} 
+          src={image.startsWith('http') ? image : `${process.env.PUBLIC_URL}${image}`} 
           alt={`${name}`} 
           className="w-full h-full object-cover"
         />
