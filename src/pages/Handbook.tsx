@@ -1,11 +1,22 @@
-
 import React from 'react';
 import Layout from '@/components/Layout';
 import Section from '@/components/Section';
-import { BookOpen, Code, Database, Globe, Server, Shield, Zap } from 'lucide-react';
+import { 
+  BookOpen, 
+  Code, 
+  Database, 
+  Globe, 
+  Server, 
+  Shield, 
+  Zap, 
+  Users, 
+  Lightbulb, 
+  Rocket, 
+  FileText
+} from 'lucide-react';
 
 const Handbook = () => {
-  // Sample handbook sections
+  // Main handbook categories
   const categories = [
     {
       title: "Getting Started",
@@ -63,6 +74,40 @@ const Handbook = () => {
     },
   ];
 
+  // African context specific resources
+  const africanContextResources = [
+    {
+      title: "Local Infrastructure",
+      description: "Strategies for developing robust applications despite infrastructure challenges:",
+      items: [
+        "Offline-first application development",
+        "Low-bandwidth optimization techniques",
+        "Power outage resilience strategies",
+        "Mobile-first development approaches"
+      ]
+    },
+    {
+      title: "Market Understanding",
+      description: "Insights into developing solutions for African markets:",
+      items: [
+        "Local payment gateway integration",
+        "Multilingual application design",
+        "Cultural context in UX/UI design",
+        "Regional compliance requirements"
+      ]
+    },
+    {
+      title: "Remote Work",
+      description: "Excelling in global remote positions from Africa:",
+      items: [
+        "Managing time zone differences",
+        "Communication best practices",
+        "Setting up reliable home offices",
+        "Work-life balance strategies"
+      ]
+    }
+  ];
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -75,8 +120,54 @@ const Handbook = () => {
         </div>
       </Section>
       
+      {/* Quick Start Section */}
+      <Section>
+        <div className="mb-8">
+          <h2 className="mb-4">
+            <Rocket className="inline-block mr-2 mb-1" size={28} />
+            Quick <span className="gradient-text">Start</span>
+          </h2>
+          <p className="text-lg text-muted-foreground mb-6">
+            Fast-track your journey with our essential resources designed for African tech talent.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <a href="#getting-started" className="bg-card rounded-lg p-6 border border-border card-hover">
+            <h3 className="text-xl font-bold mb-2">Getting Started Guide</h3>
+            <p className="text-muted-foreground">
+              Everything you need to know to begin your journey with SecretStartups.
+            </p>
+          </a>
+          
+          <a href="#skills-assessment" className="bg-card rounded-lg p-6 border border-border card-hover">
+            <h3 className="text-xl font-bold mb-2">Skills Assessment</h3>
+            <p className="text-muted-foreground">
+              Evaluate your technical skills and identify areas for growth.
+            </p>
+          </a>
+          
+          <a href="#opportunity-finder" className="bg-card rounded-lg p-6 border border-border card-hover">
+            <h3 className="text-xl font-bold mb-2">Opportunity Finder</h3>
+            <p className="text-muted-foreground">
+              Discover projects, jobs, and collaborations suited to your expertise.
+            </p>
+          </a>
+        </div>
+      </Section>
+      
       {/* Handbook Categories */}
       <Section>
+        <div className="mb-8">
+          <h2 className="mb-4">
+            <BookOpen className="inline-block mr-2 mb-1" size={28} />
+            Developer <span className="gradient-text">Resources</span>
+          </h2>
+          <p className="text-lg text-muted-foreground mb-6">
+            Explore our comprehensive collection of guides and best practices.
+          </p>
+        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {categories.map((category, index) => (
             <div key={index} className="bg-card rounded-lg border border-border p-6 card-hover">
@@ -168,11 +259,222 @@ const Handbook = () => {
         </div>
       </Section>
       
+      {/* Core Principles Section */}
+      <Section>
+        <div className="mb-8">
+          <h2 className="mb-4">
+            <Lightbulb className="inline-block mr-2 mb-1" size={28} />
+            Core <span className="gradient-text">Principles</span>
+          </h2>
+          <p className="text-lg text-muted-foreground mb-6">
+            Our fundamental beliefs that guide successful software development and professional growth.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-card rounded-lg p-6 border border-border">
+            <div className="flex items-start mb-4">
+              <div className="bg-primary/10 p-3 rounded-lg mr-4">
+                <Lightbulb className="text-primary h-6 w-6" />
+              </div>
+              <h3 className="text-xl font-bold">Continuous Learning</h3>
+            </div>
+            <p className="text-muted-foreground">
+              Technology evolves rapidly. Commit to lifelong learning and stay ahead of industry trends 
+              through daily practice, exploration, and curiosity. We provide resources to support your 
+              ongoing education journey.
+            </p>
+          </div>
+          
+          <div className="bg-card rounded-lg p-6 border border-border">
+            <div className="flex items-start mb-4">
+              <div className="bg-secondary/10 p-3 rounded-lg mr-4">
+                <Users className="text-secondary h-6 w-6" />
+              </div>
+              <h3 className="text-xl font-bold">Collaborative Growth</h3>
+            </div>
+            <p className="text-muted-foreground">
+              The strongest solutions emerge from diverse perspectives. Embrace team collaboration, 
+              share knowledge generously, and respect different viewpoints to build innovative 
+              products and grow together.
+            </p>
+          </div>
+        </div>
+      </Section>
+      
+      {/* African Tech Context Section */}
+      <Section className="bg-gradient-to-br from-primary/20 to-secondary/20 border-y border-border">
+        <div className="mb-8">
+          <h2 className="mb-4">
+            <Globe className="inline-block mr-2 mb-1" size={28} />
+            African Tech <span className="gradient-text">Context</span>
+          </h2>
+          <p className="text-lg text-muted-foreground mb-6">
+            Resources specifically tailored to the unique challenges and opportunities in the African tech ecosystem.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {africanContextResources.map((resource, index) => (
+            <div key={index} className="bg-card rounded-lg p-6 border border-border">
+              <h3 className="text-xl font-bold mb-4">{resource.title}</h3>
+              <p className="text-muted-foreground mb-4">
+                {resource.description}
+              </p>
+              <ul className="space-y-2 text-sm">
+                {resource.items.map((item, itemIndex) => (
+                  <li key={itemIndex} className="flex items-start">
+                    <div className="bg-primary/10 p-1 rounded-full mr-2 mt-1 h-5 w-5 flex items-center justify-center text-xs">✓</div>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </Section>
+      
+      {/* Professional Development Section */}
+      <Section>
+        <div className="mb-8">
+          <h2 className="mb-4">
+            <Rocket className="inline-block mr-2 mb-1" size={28} />
+            Professional <span className="gradient-text">Development</span>
+          </h2>
+          <p className="text-lg text-muted-foreground mb-6">
+            Resources to help you grow your career and succeed in the tech industry.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-card rounded-lg p-6 border border-border">
+            <h3 className="text-xl font-bold mb-4">Career Advancement</h3>
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-bold flex items-center">
+                  <FileText className="h-5 w-5 mr-2 text-neon-cyan" />
+                  Technical CV Building
+                </h4>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Craft a compelling CV that showcases your skills and experience effectively.
+                </p>
+              </div>
+              
+              <div>
+                <h4 className="font-bold flex items-center">
+                  <Users className="h-5 w-5 mr-2 text-neon-purple" />
+                  Interview Preparation
+                </h4>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Master technical interviews with practice problems and system design exercises.
+                </p>
+              </div>
+              
+              <div>
+                <h4 className="font-bold flex items-center">
+                  <Lightbulb className="h-5 w-5 mr-2 text-primary" />
+                  Personal Branding
+                </h4>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Build your online presence through portfolio development and technical blogging.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-card rounded-lg p-6 border border-border">
+            <h3 className="text-xl font-bold mb-4">Learning Paths</h3>
+            <div className="space-y-4">
+              <a href="#" className="flex items-center p-3 bg-background rounded-lg border border-border hover:border-primary transition-colors">
+                <div className="bg-primary/10 p-2 rounded-full mr-3">
+                  <Code className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-bold">Junior Developer Path</h4>
+                  <p className="text-xs text-muted-foreground">For those with 0-2 years of experience</p>
+                </div>
+              </a>
+              
+              <a href="#" className="flex items-center p-3 bg-background rounded-lg border border-border hover:border-secondary transition-colors">
+                <div className="bg-secondary/10 p-2 rounded-full mr-3">
+                  <Code className="h-5 w-5 text-secondary" />
+                </div>
+                <div>
+                  <h4 className="font-bold">Mid-Level Developer Path</h4>
+                  <p className="text-xs text-muted-foreground">For those with 2-5 years of experience</p>
+                </div>
+              </a>
+              
+              <a href="#" className="flex items-center p-3 bg-background rounded-lg border border-border hover:border-neon-cyan transition-colors">
+                <div className="bg-neon-cyan/10 p-2 rounded-full mr-3">
+                  <Code className="h-5 w-5 text-neon-cyan" />
+                </div>
+                <div>
+                  <h4 className="font-bold">Senior Developer Path</h4>
+                  <p className="text-xs text-muted-foreground">For those with 5+ years of experience</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </Section>
+      
+      {/* Community & Events Section */}
+      <Section className="bg-card border-y border-border">
+        <div className="mb-8">
+          <h2 className="mb-4">
+            <Users className="inline-block mr-2 mb-1" size={28} />
+            Community & <span className="gradient-text">Events</span>
+          </h2>
+          <p className="text-lg text-muted-foreground mb-6">
+            Connect with peers and experts through our regular online and in-person events.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-background rounded-lg p-4 border border-border">
+            <div className="flex justify-between items-start mb-2">
+              <h4 className="font-bold">Weekly Code Reviews</h4>
+              <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">Online</span>
+            </div>
+            <p className="text-sm text-muted-foreground mb-2">
+              Get feedback on your projects from experienced developers. 
+              Learn best practices and improve your coding skills.
+            </p>
+            <p className="text-xs text-neon-cyan">Every Thursday • 6:00 PM WAT</p>
+          </div>
+          
+          <div className="bg-background rounded-lg p-4 border border-border">
+            <div className="flex justify-between items-start mb-2">
+              <h4 className="font-bold">Tech Talks</h4>
+              <span className="text-xs bg-secondary/20 text-secondary px-2 py-1 rounded-full">Hybrid</span>
+            </div>
+            <p className="text-sm text-muted-foreground mb-2">
+              Listen to experts discuss emerging technologies and industry trends.
+              Ask questions and network with speakers.
+            </p>
+            <p className="text-xs text-neon-cyan">First Tuesday • 5:00 PM WAT</p>
+          </div>
+          
+          <div className="bg-background rounded-lg p-4 border border-border">
+            <div className="flex justify-between items-start mb-2">
+              <h4 className="font-bold">Hackathons</h4>
+              <span className="text-xs bg-neon-cyan/20 text-neon-cyan px-2 py-1 rounded-full">In-Person</span>
+            </div>
+            <p className="text-sm text-muted-foreground mb-2">
+              Collaborate with other developers to build innovative solutions
+              to real-world problems in 48 hours.
+            </p>
+            <p className="text-xs text-neon-cyan">Quarterly • Check Calendar</p>
+          </div>
+        </div>
+      </Section>
+      
       {/* Resources Section */}
       <Section>
-        <div className="mb-12">
+        <div className="mb-8">
           <h2 className="mb-4">Additional <span className="gradient-text">Resources</span></h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-muted-foreground mb-6">
             Expand your knowledge with these valuable resources for developers.
           </p>
         </div>
@@ -201,6 +503,24 @@ const Handbook = () => {
             <h3 className="text-xl font-bold mb-2 group-hover:text-neon-cyan transition-colors">Project Management</h3>
             <p className="text-muted-foreground">Tools and techniques for effective project management.</p>
           </a>
+        </div>
+      </Section>
+      
+      {/* FAQ Section */}
+      <Section className="bg-gradient-to-br from-primary/20 to-secondary/20 border-t border-border">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="mb-6">Have <span className="gradient-text">Questions?</span></h2>
+          <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+            Can't find what you're looking for? Our team is here to assist you with any questions about our resources.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="mailto:handbook@secretstartups.org" className="btn-primary">
+              Contact Handbook Team
+            </a>
+            <a href="#" className="btn-secondary">
+              Join Developer Forum
+            </a>
+          </div>
         </div>
       </Section>
     </Layout>
