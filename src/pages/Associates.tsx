@@ -140,7 +140,7 @@ const Associates = () => {
           </p>
           <button 
             onClick={handleApplyClick}
-            className="btn-primary flex items-center justify-center mx-auto"
+            className="btn-neon"
           >
             <UserPlus className="mr-2 h-5 w-5" />
             Apply to Join
@@ -173,7 +173,7 @@ const Associates = () => {
         <div className="mt-12 text-center">
           <button 
             onClick={handleApplyClick}
-            className="btn-primary inline-flex items-center"
+            className="btn-neon inline-flex items-center"
           >
             <UserPlus className="mr-2 h-5 w-5" />
             Become an Associate

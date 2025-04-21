@@ -240,7 +240,7 @@ const About = () => {
             <Link to="/associates" className="btn-primary">
               Join as a Developer
             </Link>
-            <Link to="/legals" className="btn-outline">
+            <Link to="/legals" className="btn-neon">
               Support Our Work
             </Link>
           </div>

@@ -56,6 +56,10 @@ useEffect(() => {
     );
   });
 
+  const handleApplyClick = () => {
+    window.location.href = 'https://associates.secretstartups.org/auth/register';
+  };
+
   return (
     <section
       className={cn(
@@ -100,10 +104,11 @@ useEffect(() => {
             </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/associates" className="btn-primary">
-              Join as a Developer
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
+          <button onClick={handleApplyClick} className="btn-neon flex items-center justify-center">
+            Join as a Developer
+            <ArrowRight className="ml-2 w-5" />
+          </button>
+
             {/* <Link to="/teams" className="btn-outline">
               Find a Team
             </Link> */}
