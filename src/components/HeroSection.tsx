@@ -7,40 +7,45 @@ import { cn } from '@/lib/utils';
 interface HeroSectionProps {
   className?: string;
 }
-const words = ['Build', 'Collaborate', 'Earn', 'Learn'];
+
+const phrases = [
+  'Collaborate. Learn. Earn. Build.',
+  'Collaborate. Learn.',
+  'Collaborate. Earn. Build. Learn.',
+  'Learn. Build. Collaborate.',
+  'Earn. Collaborate. Learn.'
+];
 
 const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
-  const [displayedText, setDisplayedText] = useState('');
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
+const [displayedText, setDisplayedText] = useState('');
+const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+const [isDeleting, setIsDeleting] = useState(false);
 
+useEffect(() => {
+  const currentPhrase = phrases[currentPhraseIndex];
+  let timeout: NodeJS.Timeout;
 
-  useEffect(() => {
-    const currentWord = words[currentWordIndex];
+  if (!isDeleting && displayedText === currentPhrase) {
+    timeout = setTimeout(() => setIsDeleting(true), 2000);
+  } else if (isDeleting && displayedText === '') {
+    timeout = setTimeout(() => {
+      setIsDeleting(false);
+      setCurrentPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
+    }, 500);
+  } else {
+    timeout = setTimeout(() => {
+      setDisplayedText((prev) =>
+        isDeleting
+          ? currentPhrase.substring(0, prev.length - 1)
+          : currentPhrase.substring(0, prev.length + 1)
+      );
+    }, isDeleting ? 100 : 180);
+  }
+
+  return () => clearTimeout(timeout);
+}, [displayedText, isDeleting, currentPhraseIndex]);
   
-    let timeout;
-  
-    if (!isDeleting && displayedText === currentWord) {
-      timeout = setTimeout(() => setIsDeleting(true), 2000);
-    } else if (isDeleting && displayedText === '') {
-      timeout = setTimeout(() => {
-        setIsDeleting(false);
-        setCurrentWordIndex(Math.floor(Math.random() * words.length));
-      }, 500);
-    } else {
-      timeout = setTimeout(() => {
-        setDisplayedText((prev) =>
-          isDeleting
-            ? currentWord.substring(0, prev.length - 1)
-            : currentWord.substring(0, prev.length + 1)
-        );
-      }, isDeleting ? 100 : 180);
-    }
-  
-    return () => clearTimeout(timeout);
-  }, [displayedText, isDeleting]);
-  
-  const customColors = ['#f20eff', '#00FFFF', '#F9F9F9', '#0080ff'];
+  const customColors = [ '#F9F9F9'];
 
   const colorfulLetters = 'SecretStartups'.split('').map((char, i) => {
     const color = customColors[i % customColors.length];
