@@ -45,7 +45,7 @@ useEffect(() => {
   return () => clearTimeout(timeout);
 }, [displayedText, isDeleting, currentPhraseIndex]);
   
-  const customColors = [ '#F9F9F9'];
+  const customColors = ['#F9F9F9'];
 
   const colorfulLetters = 'SecretStartups'.split('').map((char, i) => {
     const color = customColors[i % customColors.length];

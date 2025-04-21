@@ -68,7 +68,7 @@ const Teams = () => {
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
             Join forces with brilliant minds. Our teams of talented developers are building innovative solutions across Africa.
           </p>
-          <Link to="/associates" className="btn-primary">
+          <Link to="/associates" className="btn-neon">
             Join a Team
             <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
@@ -110,7 +110,7 @@ const Teams = () => {
             <Link to="/associates" className="btn-primary">
               Apply Now
             </Link>
-            <Link to="/about" className="btn-outline">
+            <Link to="/about" className="btn-neon">
               Learn More
             </Link>
           </div>
