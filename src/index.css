@@ -31,6 +31,8 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
+    --neon-cyan: 180 100% 50%;
+
     --border: 240 20% 20%;
     --input: 240 20% 20%;
     --ring: 270 75% 60%;
@@ -95,6 +97,10 @@
 
   .neon-border {
     @apply border border-neon-cyan shadow-[0_0_5px_rgba(0,255,255,0.5)] animate-glow;
+  }
+
+  .btn-neon {
+    @apply inline-flex items-center justify-center whitespace-nowrap rounded-lg bg-neon-cyan text-background font-semibold px-4 py-2 transition hover:bg-neon-cyan/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50;
   }
 
   .section-padding {

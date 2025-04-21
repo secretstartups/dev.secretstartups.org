@@ -14,6 +14,9 @@ import {
 } from "lucide-react";
 
 const Index = () => {
+  const handleApplyClick = () => {
+    window.location.href = 'https://associates.secretstartups.org/auth/register';
+  };
   return (
     <Layout>
       <HeroSection />
@@ -120,10 +123,10 @@ const Index = () => {
             start receiving opportunities to your inbox
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/associates" className="btn-primary">
+            <button onClick={handleApplyClick} className="btn-neon">
               Join as a Developer
-            </Link>
-            <Link to="/about" className="btn-outline">
+            </button>
+            <Link to="/about" className="btn-neon">
               Learn More
             </Link>
           </div>

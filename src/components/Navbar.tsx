@@ -109,7 +109,7 @@ const Navbar: React.FC = () => {
           <div className="hidden md:block">
             <button 
               onClick={handleApplyClick}
-              className="ml-4 px-4 py-2 rounded-lg bg-neon-cyan text-background font-semibold hover:bg-neon-cyan/90 transition"
+              className="btn-neon h-[36px] px-6 text-base"
             >
               Sign Up
             </button>
