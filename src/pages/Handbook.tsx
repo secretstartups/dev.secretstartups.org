@@ -14,6 +14,7 @@ import {
   Rocket, 
   FileText
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Handbook = () => {
   // Main handbook categories
@@ -107,6 +108,10 @@ const Handbook = () => {
       ]
     }
   ];
+
+  const handleApplyClick = () => {
+    window.location.href = 'https://associates.secretstartups.org/auth/register';
+  };
 
   return (
     <Layout>
@@ -514,12 +519,9 @@ const Handbook = () => {
             Can't find what you're looking for? Our team is here to assist you with any questions about our resources.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="mailto:handbook@secretstartups.org" className="btn-primary">
-              Contact Handbook Team
-            </a>
-            <a href="#" className="btn-secondary">
+            <button onClick={handleApplyClick} className="btn-neon">
               Join Developer Forum
-            </a>
+            </button>
           </div>
         </div>
       </Section>
