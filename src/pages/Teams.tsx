@@ -59,6 +59,10 @@ const Teams = () => {
     );
   }
 
+  const handleApplyClick = () => {
+    window.location.href = 'https://associates.secretstartups.org/auth/register';
+  };
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -107,9 +111,9 @@ const Teams = () => {
             Collaborate with talented developers on exciting projects. Join SecretStartups and become part of a team.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/associates" className="btn-primary">
+            <button onClick={handleApplyClick} className="btn-transparent-white">
               Apply Now
-            </Link>
+            </button>
             <Link to="/about" className="btn-neon">
               Learn More
             </Link>

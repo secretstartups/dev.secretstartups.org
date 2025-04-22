@@ -19,6 +19,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import { SiMattermost } from "react-icons/si";
 
 // Define validation schema
 const formSchema = z.object({
@@ -85,16 +86,20 @@ const ContactUs = () => {
                     <Send size={20} />
                   </div>
                   <div>
-                    <h4 className="font-medium">Have a specific inquiry?</h4>
-                    <p className="text-muted-foreground">Email us at info@secretstartups.org</p>
-                    <p className="text-sm text-muted-foreground mt-2">
-                      Note: Please only use email for urgent matters. For general involvement, 
-                      we encourage you to engage directly through our GitHub projects and community channels.
-                    </p>
+                  <h4 className="font-medium">Have a specific inquiry?</h4>
+                    <a 
+                      href="https://your-mattermost-link.com" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-primary hover:underline"
+                    >
+                      <SiMattermost size={20} />
+                      Join our Mattermost
+                    </a>        
                   </div>
                 </div>
                 <div className="border-t border-border my-4"></div>
-                <div className="text-sm text-muted-foreground">
+                {/* <div className="text-sm text-muted-foreground">
                   <p className="font-medium mb-2">Why become an associate?</p>
                   <ul className="list-disc pl-5 space-y-2">
                     <li>Work on meaningful open-source projects</li>
@@ -102,7 +107,7 @@ const ContactUs = () => {
                     <li>Build your portfolio with impactful work</li>
                     <li>Learn and grow in a supportive community</li>
                   </ul>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

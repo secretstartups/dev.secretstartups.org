@@ -335,10 +335,10 @@ const PrivacyPolicy = () => {
             start receiving opportunities to your inbox
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/associates" className="btn-primary">
+            <Link to="/associates" className="btn-neon">
               Join as a Developer
             </Link>
-            <Link to="/about" className="btn-outline">
+            <Link to="/about" className="btn-transparent-white">
               Learn More
             </Link>
           </div>

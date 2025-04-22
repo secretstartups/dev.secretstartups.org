@@ -240,7 +240,7 @@ const Legals = () => {
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
             If you have any questions about our legal information or would like to request additional documents, please contact our legal team.
           </p>
-          <a href="mailto:legal@secretstartups.org" className="btn-primary">
+          <a href="mailto:legal@secretstartups.org" className="btn-neon">
             Contact Legal Team
           </a>
         </div>
