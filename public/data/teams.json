@@ -8,7 +8,7 @@
         "name": "Amara N.",
         "role": "Frontend Developer",
         "skills": ["React", "Next.js", "TailwindCSS"],
-        "image": "/assets/ss-africa-1m.jpg",
+        "image": "/assets/avatar_set2_3.png",
         "githubUrl": "https://github.com",
         "portfolioUrl": "https://portfolio.com"
       },
@@ -16,14 +16,14 @@
         "name": "Kwame M.",
         "role": "Backend Developer",
         "skills": ["Node.js", "Express", "MongoDB"],
-        "image": "/assets/ss-africa-400k.jpg",
+        "image": "/assets/avatar_set2_2.png",
         "githubUrl": "https://github.com"
       },
       {
         "name": "Fatima A.",
         "role": "Full Stack Developer",
         "skills": ["React", "Node.js", "TypeScript"],
-        "image": "/assets/tree-bg-500kb.jpg",
+        "image": "/assets/avatar_set2_1.png",
         "portfolioUrl": "https://portfolio.com"
       }
     ]
@@ -37,7 +37,7 @@
         "name": "Malik N.",
         "role": "Mobile Developer",
         "skills": ["React Native", "Flutter", "Firebase"],
-        "image": "/assets/tree-bg.jpg",
+        "image": "/assets/avatar_set2_1.png",
         "githubUrl": "https://github.com",
         "portfolioUrl": "https://portfolio.com"
       },
@@ -45,7 +45,7 @@
         "name": "Zainab O.",
         "role": "UI/UX Designer",
         "skills": ["Figma", "Adobe XD", "Prototyping"],
-        "image": "/assets/tree-bg.avif",
+        "image": "/assets/avatar_set2_4.png",
         "portfolioUrl": "https://portfolio.com"
       }
     ]

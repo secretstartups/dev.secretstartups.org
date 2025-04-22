@@ -13,7 +13,7 @@ const Teams = () => {
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        const response = await fetch('/data/teams.json');
+        const response = await fetch('./data/teams.json');
         if (!response.ok) {
           throw new Error('Failed to fetch teams data');
         }
