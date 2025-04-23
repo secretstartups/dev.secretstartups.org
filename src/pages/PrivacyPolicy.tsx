@@ -12,12 +12,13 @@ import {
   Eye,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { trackButtonClick } from '@/utils/analytics';
+import { trackButtonClick } from "@/utils/analytics";
 
 const PrivacyPolicy = () => {
   const handleApplyClick = () => {
-      trackButtonClick('Join As Developer', 'Privacy Policy CTA');
-      window.location.href = 'https://associates.secretstartups.org/auth/register';
+    trackButtonClick("Join As Developer", "Privacy Policy CTA");
+    window.location.href =
+      "https://associates.secretstartups.org/auth/register";
   };
 
   return (

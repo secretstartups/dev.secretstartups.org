@@ -137,10 +137,7 @@ const FAQ = () => {
                 >
                   Contact Support
                 </a>
-                <button
-                  onClick={handleApplyClick}
-                  className="btn-neon"
-                >
+                <button onClick={handleApplyClick} className="btn-neon">
                   Sign Up Free Today
                 </button>
               </div>

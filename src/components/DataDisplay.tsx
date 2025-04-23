@@ -1,7 +1,7 @@
 // src/components/DataDisplay.tsx
-import React from 'react';
-import { useQuery } from '../utils/database';
-import { useEffect } from 'react';
+import React from "react";
+import { useQuery } from "../utils/database";
+import { useEffect } from "react";
 
 // Define an interface for your data structure
 interface User {
@@ -13,11 +13,13 @@ interface User {
 
 function DataDisplay() {
   // Replace 'users' with your actual table name
-  const { data, loading, error } = useQuery<User>('SELECT * FROM "rxresu"."users" LIMIT 10');
+  const { data, loading, error } = useQuery<User>(
+    'SELECT * FROM "rxresu"."users" LIMIT 10'
+  );
 
   useEffect(() => {
     if (data) {
-      console.log('Fetched data:', data);
+      console.log("Fetched data:", data);
     }
   }, [data]);
 
@@ -35,4 +37,3 @@ function DataDisplay() {
 
 export default DataDisplay;
 // Removed the local useEffect function to avoid conflict with the imported one
-
