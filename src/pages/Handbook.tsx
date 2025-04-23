@@ -15,6 +15,7 @@ import {
   FileText
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { trackButtonClick } from "@/utils/analytics";
 
 const Handbook = () => {
   // Main handbook categories
@@ -110,6 +111,7 @@ const Handbook = () => {
   ];
 
   const handleApplyClick = () => {
+    trackButtonClick("Join Developer Forum", "Handbook Section");
     window.location.href = 'https://associates.secretstartups.org/auth/register';
   };
 

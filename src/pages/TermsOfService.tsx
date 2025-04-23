@@ -10,8 +10,15 @@ import {
   Briefcase,
   GraduationCap,
 } from "lucide-react";
+import { trackButtonClick } from '@/utils/analytics';
 
 const TermsOfService = () => {
+  // Track the page view event
+  const handleApplyClick = () => {
+        trackButtonClick('Join As Developer', 'Terms of Service');
+        window.location.href = 'https://associates.secretstartups.org/auth/register';
+  };
+
   return (
     <Layout>
       <Section className="pt-24 pb-16 bg-gradient-to-br from-secondary/20 to-primary/20 border-b border-border">
@@ -257,19 +264,9 @@ const TermsOfService = () => {
                 >
                   support@secretstartups.org
                 </a>
-                .
+              
               </p>
-              <div className="mt-8 text-center">
-                <p className="font-medium">
-                  Ready to accelerate your tech career?
-                </p>
-                <a
-                  href="/signup"
-                  className="inline-block mt-4 px-6 py-3 bg-[#00ffff] hover:bg-[#00ffff]/80 text-black font-semibold rounded-md transition-colors"
-                >
-                  Sign Up Free Today
-                </a>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -287,9 +284,9 @@ const TermsOfService = () => {
             start receiving opportunities to your inbox
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/associates" className="btn-neon">
+            <button onClick={handleApplyClick} className="btn-neon">
               Join as a Developer
-            </Link>
+            </button>
             <Link to="/about" className="btn-transparent-white">
               Learn More
             </Link>

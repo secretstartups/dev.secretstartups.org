@@ -4,6 +4,7 @@ import Section from '@/components/Section';
 import ProfileCard from '@/components/ProfileCard';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { trackButtonClick } from "@/utils/analytics";
 
 const Teams = () => {
   const [teams, setTeams] = useState([]);
@@ -60,6 +61,7 @@ const Teams = () => {
   }
 
   const handleApplyClick = () => {
+    
     window.location.href = 'https://associates.secretstartups.org/auth/register';
   };
 
@@ -72,10 +74,10 @@ const Teams = () => {
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
             Join forces with brilliant minds. Our teams of talented developers are building innovative solutions across Africa.
           </p>
-          <Link to="/associates" className="btn-neon">
+          {/* <Link to="/associates" className="btn-neon">
             Join a Team
             <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
+          </Link> */}
         </div>
       </Section>
       
