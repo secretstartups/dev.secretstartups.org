@@ -3,7 +3,7 @@ import Layout from '@/components/Layout';
 import Section from '@/components/Section';
 import ProfileCard from '@/components/ProfileCard';
 import { UserPlus } from 'lucide-react';
-// import DataDisplay from '@/components/DataDisplay';
+import { trackButtonClick } from '@/utils/analytics';
 const associatesImage = '/assets/ss-avatar.png';
 
 const Associates = () => {
@@ -114,7 +114,10 @@ const Associates = () => {
           <div className="text-center">
             <p className="text-lg text-red-500">Error: {error}</p>
             <button 
-              onClick={() => window.location.reload()} 
+              onClick={() => {
+                trackButtonClick('Try Again', 'Associates Error Page');
+                window.location.reload();
+              }}  
               className="mt-4 btn-outline"
             >
               Try Again
@@ -126,6 +129,12 @@ const Associates = () => {
   }
 
   const handleApplyClick = () => {
+    trackButtonClick('Apply to Join', 'Associates Page');
+    window.location.href = 'https://associates.secretstartups.org/auth/register';
+  };
+
+  const handleBecomeAssociateClick = () => {
+    trackButtonClick('Become an Associate', 'Associates Page - Bottom');
     window.location.href = 'https://associates.secretstartups.org/auth/register';
   };
 
@@ -172,7 +181,7 @@ const Associates = () => {
         
         <div className="mt-12 text-center">
           <button 
-            onClick={handleApplyClick}
+            onClick={handleBecomeAssociateClick}
             className="btn-neon inline-flex items-center"
           >
             <UserPlus className="mr-2 h-5 w-5" />
