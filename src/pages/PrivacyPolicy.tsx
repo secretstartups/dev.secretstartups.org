@@ -12,8 +12,14 @@ import {
   Eye,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { trackButtonClick } from '@/utils/analytics';
 
 const PrivacyPolicy = () => {
+  const handleApplyClick = () => {
+      trackButtonClick('Join As Developer', 'Privacy Policy CTA');
+      window.location.href = 'https://associates.secretstartups.org/auth/register';
+  };
+
   return (
     <Layout>
       <Section className="pt-24 pb-16 bg-gradient-to-br from-secondary/20 to-primary/20 border-b border-border">
@@ -335,9 +341,9 @@ const PrivacyPolicy = () => {
             start receiving opportunities to your inbox
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/associates" className="btn-neon">
+            <button onClick={handleApplyClick} className="btn-neon">
               Join as a Developer
-            </Link>
+            </button>
             <Link to="/about" className="btn-transparent-white">
               Learn More
             </Link>

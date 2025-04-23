@@ -12,10 +12,13 @@ import {
   GraduationCap,
   Users,
 } from "lucide-react";
+import { trackButtonClick } from "@/utils/analytics";
 
 const Index = () => {
   const handleApplyClick = () => {
-    window.location.href = 'https://associates.secretstartups.org/auth/register';
+    trackButtonClick("Apply Now", "Teams Page CTA");
+    window.location.href =
+      "https://associates.secretstartups.org/auth/register";
   };
   return (
     <Layout>
@@ -86,7 +89,7 @@ const Index = () => {
             skills={["React", "Next.js", "TailwindCSS"]}
             image="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
             githubUrl="https://github.com"
-            portfolioUrl="https://portfolio.com"
+            portfolioUrl="#"
           />
           <ProfileCard
             name="Kwame Mensah"
@@ -94,13 +97,14 @@ const Index = () => {
             skills={["Node.js", "Express", "MongoDB"]}
             image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
             githubUrl="https://github.com"
+            portfolioUrl="#"
           />
           <ProfileCard
             name="Fatima Ahmed"
             role="Full Stack Developer"
             skills={["React", "Node.js", "TypeScript"]}
             image="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1061&q=80"
-            portfolioUrl="https://portfolio.com"
+            portfolioUrl="#"
           />
         </div>
 

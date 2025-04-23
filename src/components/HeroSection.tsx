@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { trackButtonClick } from "@/utils/analytics";
 
 interface HeroSectionProps {
   className?: string;
@@ -57,6 +58,7 @@ useEffect(() => {
   });
 
   const handleApplyClick = () => {
+    trackButtonClick("Join As Developer", "Home Page");
     window.location.href = 'https://associates.secretstartups.org/auth/register';
   };
 

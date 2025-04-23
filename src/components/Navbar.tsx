@@ -13,7 +13,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 // Import your tracking utility
-import { trackButtonClick } from '@/utils/analytics'; // Adjust path as needed
+import { trackButtonClick } from '@/utils/analytics';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

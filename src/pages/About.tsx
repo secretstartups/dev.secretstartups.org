@@ -4,8 +4,15 @@ import Layout from '@/components/Layout';
 import Section from '@/components/Section';
 import { Link } from 'react-router-dom';
 import { BookOpen, Briefcase, GraduationCap, MessageSquare, Users } from 'lucide-react';
+import { trackButtonClick } from "@/utils/analytics";
 
 const About = () => {
+  const handleJoinClick = () => {
+    trackButtonClick("Join As Developer", "About Page");
+    window.location.href =
+      "https://associates.secretstartups.org/auth/register";
+  };
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -237,9 +244,9 @@ const About = () => {
             Whether you're a developer looking for opportunities or an organization wanting to support African tech talent, there's a place for you at SecretStartups.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/associates" className="btn-primary">
+            <button onClick={handleJoinClick} className="btn-primary">
               Join as a Developer
-            </Link>
+            </button>
             <Link to="/legals" className="btn-neon">
               Support Our Work
             </Link>
