@@ -1,6 +1,5 @@
-
-import React from 'react';
-import { cn } from '@/lib/utils';
+import React from "react";
+import { cn } from "@/lib/utils";
 
 interface ResourceCardProps {
   title: string;
@@ -15,7 +14,7 @@ const ResourceCard: React.FC<ResourceCardProps> = ({
   description,
   icon,
   className,
-  href
+  href,
 }) => {
   const CardContent = () => (
     <>
@@ -26,7 +25,7 @@ const ResourceCard: React.FC<ResourceCardProps> = ({
   );
 
   return href ? (
-    <a 
+    <a
       href={href}
       className={cn(
         "block p-6 bg-card rounded-lg border border-border transition-all duration-300",
@@ -37,7 +36,7 @@ const ResourceCard: React.FC<ResourceCardProps> = ({
       <CardContent />
     </a>
   ) : (
-    <div 
+    <div
       className={cn(
         "p-6 bg-card rounded-lg border border-border card-hover",
         className

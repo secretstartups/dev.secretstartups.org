@@ -7,7 +7,6 @@ import { trackButtonClick } from "@/utils/analytics";
 const Legals = () => {
   const handleApplyClick = () => {
     trackButtonClick("Contact Legals", "Legals Page");
-
   };
 
   return (
@@ -318,10 +317,10 @@ const Legals = () => {
             If you have any questions about our legal information or would like
             to request additional documents, please contact our legal team.
           </p>
-          
-        <button onClick={handleApplyClick} className="btn-neon">
-          <a href="mailto:legal@secretstartups.org">Contact Legal Team</a>
-        </button>
+
+          <button onClick={handleApplyClick} className="btn-neon">
+            <a href="mailto:legal@secretstartups.org">Contact Legal Team</a>
+          </button>
         </div>
       </Section>
     </Layout>

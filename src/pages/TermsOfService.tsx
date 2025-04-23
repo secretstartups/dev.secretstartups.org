@@ -10,13 +10,14 @@ import {
   Briefcase,
   GraduationCap,
 } from "lucide-react";
-import { trackButtonClick } from '@/utils/analytics';
+import { trackButtonClick } from "@/utils/analytics";
 
 const TermsOfService = () => {
   // Track the page view event
   const handleApplyClick = () => {
-        trackButtonClick('Join As Developer', 'Terms of Service');
-        window.location.href = 'https://associates.secretstartups.org/auth/register';
+    trackButtonClick("Join As Developer", "Terms of Service");
+    window.location.href =
+      "https://associates.secretstartups.org/auth/register";
   };
 
   return (
@@ -264,9 +265,7 @@ const TermsOfService = () => {
                 >
                   support@secretstartups.org
                 </a>
-              
               </p>
-              
             </div>
           </div>
         </div>
