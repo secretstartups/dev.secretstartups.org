@@ -6,6 +6,9 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    fs: {
+      allow: ['.'], // 👈 Allow access to all files from project root
+    },
   },
   plugins: [
     react(),
